@@ -1,0 +1,52 @@
+[
+  {
+    "task": "Set up tests for Flask Sudoku app",
+    "prompt": "Help me write unit tests for a Flask-based Sudoku game with puzzle validation, solving, and board checking. I need tests for board validation rules (rows, columns, 3x3 boxes), puzzle generation at different difficulties, and API endpoints.",
+    "summary": "Generated a comprehensive pytest structure including fixtures for sample boards, tests for validation logic, board checking, puzzle generation, and all API endpoints. Includes integration tests for complete game flow."
+  },
+  {
+    "task": "Implement unique solution validation",
+    "prompt": "Suggest a way to verify that a generated Sudoku puzzle has exactly one valid solution. I need to generate puzzles that aren't too easy or too hard.",
+    "summary": "Proposed a backtracking solver that counts solutions and exits early after finding more than one. Modified the puzzle generation to check unique solutions when removing cells, ensuring each puzzle has exactly one valid answer."
+  },
+  {
+    "task": "Create leaderboard with localStorage",
+    "prompt": "Create JavaScript logic to store and render the top 10 Sudoku completion times using browser localStorage. Include player name, time, difficulty level, and timestamp.",
+    "summary": "Provided complete score persistence logic including sorting by completion time, keeping only top 10 scores, displaying with medal rankings, and rendering with formatted times and difficulty badges."
+  },
+  {
+    "task": "Build timer and keyboard navigation",
+    "prompt": "Implement a game timer that starts when a new game begins and stops when the puzzle is solved. Also add keyboard navigation (arrow keys) for moving between cells and number entry (1-9) for solving.",
+    "summary": "Created timer functionality with start/stop/display, and keyboard handlers supporting arrow key navigation between cells (skipping locked cells), number entry 1-9, and backspace for clearing cells."
+  },
+  {
+    "task": "Implement hint system",
+    "prompt": "Create a hint feature that reveals one valid empty cell with its correct answer from the solution. The hint should be random to vary gameplay.",
+    "summary": "Implemented get_hint() function that randomly selects an empty cell and reveals its value from the solution. Frontend highlights the hint cell and displays a success message."
+  },
+  {
+    "task": "Design dark mode theme",
+    "prompt": "Add dark mode toggle to the Sudoku game with smooth transitions. Save the user's theme preference to localStorage. Use CSS variables for easy theme switching.",
+    "summary": "Created a comprehensive dark mode system using CSS custom properties (--bg-primary, --text-color, etc.) with a toggle button that persists the theme choice in localStorage. Includes smooth transitions between themes."
+  },
+  {
+    "task": "Style 3x3 Sudoku subgrid separation",
+    "prompt": "Create clear visual separation between the nine 3x3 boxes in the Sudoku grid using CSS. Make the grid look like a traditional Sudoku puzzle with bold lines around each box.",
+    "summary": "Used CSS nth-child selectors to create 3px borders between 3x3 boxes while maintaining 1px borders between individual cells. Result is a clear visual hierarchy matching traditional Sudoku boards."
+  },
+  {
+    "task": "Add real-time answer checking",
+    "prompt": "Implement a 'Check' button that validates the current board state and highlights any cells with conflicts (duplicates in rows, columns, or boxes) without requiring the board to be complete.",
+    "summary": "Created check_board() validation that identifies cells violating Sudoku rules and returns their positions. Frontend highlights error cells in red and displays count of conflicts found."
+  },
+  {
+    "task": "Optimize puzzle generation algorithm",
+    "prompt": "The puzzle generation is sometimes slow for hard difficulty. Suggest optimizations for faster backtracking solver and puzzle creation.",
+    "summary": "Optimized by filling diagonal 3x3 boxes first (they don't interfere), using early termination in the solution counter (stops after 2 solutions found), and setting max_attempts limit to prevent infinite loops."
+  },
+  {
+    "task": "Create responsive mobile design",
+    "prompt": "Make the Sudoku board and controls responsive for mobile devices. Adjust the grid cell size, button layout, and text sizes for smaller screens. Test on phones and tablets.",
+    "summary": "Added media queries for tablets (768px) and phones (480px) that reduce cell size from 50px to 40px to 30px, stack controls vertically, and adjust font sizes. Leaderboard also reformats for mobile viewing."
+  }
+]

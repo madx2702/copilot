@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game - Refactored with Copilot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🧩 Sudoku Master</h1>
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+                    🌙
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Control Panel -->
+            <section class="controls">
+                <div class="control-group">
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <button id="newGameBtn" class="btn btn-primary">New Game</button>
+                    <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                </div>
+
+                <div class="timer-display">
+                    <span class="label">Time:</span>
+                    <span id="timer" class="time">00:00</span>
+                </div>
+            </section>
+
+            <!-- Game Board -->
+            <section class="board-section">
+                <div id="sudokuBoard" class="sudoku-board"></div>
+            </section>
+
+            <!-- Game Actions -->
+            <section class="actions">
+                <button id="checkBtn" class="btn btn-info">Check</button>
+                <button id="hintBtn" class="btn btn-info">Hint</button>
+                <button id="submitBtn" class="btn btn-success">Submit</button>
+            </section>
+
+            <!-- Status Messages -->
+            <div id="statusMessage" class="status-message"></div>
+
+            <!-- Leaderboard -->
+            <section class="leaderboard-section">
+                <h2>🏆 Top 10 Times</h2>
+                <div id="leaderboard" class="leaderboard">
+                    <p class="no-scores">No completed games yet. Solve a puzzle to appear here!</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with GitHub Copilot • Refactored Sudoku Game</p>
+        </footer>
+    </div>
+
+    <!-- Win Modal -->
+    <div id="winModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>🎉 Congratulations!</h2>
+            <p>You solved the puzzle in <span id="finalTime"></span>!</p>
+            <div class="modal-input">
+                <label for="playerName">Your name:</label>
+                <input type="text" id="playerName" placeholder="Enter your name" maxlength="20">
+            </div>
+            <div class="modal-buttons">
+                <button id="saveScoreBtn" class="btn btn-success">Save Score</button>
+                <button id="newGameFromWinBtn" class="btn btn-primary">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay for Modal -->
+    <div id="modalOverlay" class="modal-overlay hidden"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
